@@ -1,0 +1,21 @@
+version: '2'
+services:
+  db:
+    image: mongo
+    ports:
+      - 27017:27017
+    command: "--smallfiles --logpath=/dev/null"
+  web:
+    image: erayarslan/web:prod
+    environment:
+      - SOZLUK_API_URL=http://thisistest.site/service/proxy/api/v1
+    ports:
+      - 1337:1337
+  api:
+    image: erayarslan/api:prod
+    ports:
+      - 8080:8080
+    links:
+      - db
+    depends_on:
+      - db
