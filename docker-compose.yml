@@ -1,10 +1,15 @@
 version: '2'
 services:
+  prerender:
+    image: erayarslan/prerender:prod
+    ports:
+      - 3000:3000
   db:
     image: mongo
     ports:
       - 27017:27017
-    command: "--smallfiles --logpath=/dev/null"
+    volumes:
+      - /data/mongodb:/data/db
   web:
     image: erayarslan/web:prod
     environment:
