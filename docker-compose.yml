@@ -1,5 +1,13 @@
 version: '2'
 services:
+  nginx:
+    image: erayarslan/nginx:prod
+    links:
+      - api1:api1
+      - api2:api2
+      - api3:api3
+    ports:
+      - 80:80
   prerender:
     image: erayarslan/prerender:prod
     ports:
@@ -13,11 +21,33 @@ services:
   web:
     image: erayarslan/web:prod
     environment:
-      - SOZLUK_API_URL=http://thisistest.site/service/proxy/api/v1
+      - SOZLUK_ENV=prod
     ports:
       - 1337:1337
-  api:
+  api1:
     image: erayarslan/api:prod
+    environment:
+      - SOZLUK_ENV=prod
+    ports:
+      - 8080:8080
+    links:
+      - db
+    depends_on:
+      - db
+  api2:
+    image: erayarslan/api:prod
+    environment:
+      - SOZLUK_ENV=prod
+    ports:
+      - 8080:8080
+    links:
+      - db
+    depends_on:
+      - db
+  api3:
+    image: erayarslan/api:prod
+    environment:
+      - SOZLUK_ENV=prod
     ports:
       - 8080:8080
     links:
