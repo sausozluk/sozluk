@@ -4,6 +4,8 @@ services:
     image: erayarslan/nginx:prod
     links:
       - api:api
+      - web:web
+      - prerender:prerender
     ports:
       - 80:80
   prerender:
@@ -19,13 +21,13 @@ services:
   web:
     image: erayarslan/web:prod
     environment:
-      - SOZLUK_ENV=prod
+      - SOZLUK_ENV=${SOZLUK_ENV}
     ports:
       - 1337:1337
   api:
     image: erayarslan/api:prod
     environment:
-      - SOZLUK_ENV=prod
+      - SOZLUK_ENV=${SOZLUK_ENV}
     ports:
       - 8080:8080
     links:
