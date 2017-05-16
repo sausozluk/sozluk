@@ -1,5 +1,15 @@
 version: '2'
 services:
+  backup:
+    image: erayarslan/sozluk-backup:prod
+    volumes:
+      - /data/backups:/app/backups
+    environment:
+      - SOZLUK_ENV=${SOZLUK_ENV}
+    links:
+      - db
+    depends_on:
+      - db
   nginx:
     image: erayarslan/nginx:prod
     links:
