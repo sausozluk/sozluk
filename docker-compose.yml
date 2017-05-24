@@ -45,4 +45,4 @@ services:
     depends_on:
       - db
     volumes:
-      - ./shared/api:/app/src/confs
+      - ./shared/api/prod.json:/app/confs/prod.json
