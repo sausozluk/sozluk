@@ -3,7 +3,7 @@ services:
   backup:
     image: erayarslan/sozluk-backup:prod
     volumes:
-      - /data/backups:/app/backups
+      - ./shared/backup:/app/backups
     environment:
       - SOZLUK_ENV=${SOZLUK_ENV}
     links:
@@ -27,7 +27,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - /data/mongodb:/data/db
+      - ./shared/db:/data/db
   web:
     image: erayarslan/web:prod
     environment:
@@ -45,4 +45,4 @@ services:
     depends_on:
       - db
     volumes:
-      - /data/api/prod.json:/app/src/confs/prod.json
+      - ./shared/api/prod.json:/app/src/confs/prod.json
