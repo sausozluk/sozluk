@@ -1,5 +1,9 @@
 version: '2'
 services:
+  nevergreen:
+    image: buildcanariesteam/nevergreen
+    ports:
+      - 5000:5000
   backup:
     image: erayarslan/sozluk-backup:prod
     volumes:
