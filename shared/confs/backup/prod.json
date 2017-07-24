@@ -1,0 +1,5 @@
+{
+  "mongo_uri": "mongodb://db:27017/sozluk",
+  "accessKeyId": "",
+  "secretAccessKey": ""
+}
