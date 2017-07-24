@@ -4,7 +4,7 @@ services:
     image: erayarslan/sozluk-backup:prod
     volumes:
       - ./shared/backup:/app/backups
-      - ./shared/confs/backup/prod.json:/confs/prod.json
+      - ./shared/confs/backup/prod.json:/app/confs/prod.json
     environment:
       - SOZLUK_ENV=${SOZLUK_ENV}
     links:
