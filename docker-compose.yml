@@ -37,6 +37,7 @@ services:
       - 1337:1337
   api:
     image: erayarslan/api:prod
+    restart: always
     environment:
       - SOZLUK_ENV=${SOZLUK_ENV}
     ports:
