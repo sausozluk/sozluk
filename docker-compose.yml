@@ -24,7 +24,7 @@ services:
     ports:
       - 3000:3000
   db:
-    image: mongo
+    image: mongo:3.6.3
     ports:
       - 27017:27017
     volumes:
