@@ -21,6 +21,7 @@ services:
       - prerender:prerender
     ports:
       - 80:80
+      - 443:443
   prerender:
     image: erayarslan/prerender:prod
     ports:
