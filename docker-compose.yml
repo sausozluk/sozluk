@@ -13,6 +13,8 @@ services:
       - db
   nginx:
     image: erayarslan/nginx:prod
+    volumes:
+      - ./shared/ssl:/ssl
     links:
       - api:api
       - web:web
